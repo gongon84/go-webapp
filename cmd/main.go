@@ -22,7 +22,7 @@ func main() {
 	e.Renderer = t
 
 	// 静的ファイルのパスを設定
-	e.Static("/css/", "./resources/assets/css/")
+	e.Static("/assets/", "./resources/assets/")
 
 	e.GET("/", makeHandler(api.Index))
 	e.GET("/company", makeHandler(api.CompanyDetail))

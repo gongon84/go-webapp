@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>企業情報</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/company.js"></script>
 </head>
 <body>
   <h1>企業情報</h1>
@@ -27,25 +28,5 @@
     <a href="#" onclick="beforePage(event)">前へ</a>
     <a href="#" onclick="nextPage(event)">次へ</a>
   </h3>
-  <!-- jsファイル -->
-  <script>
-    // 次へ
-    function nextPage(event) {
-      event.preventDefault();
-      const params = new URLSearchParams(window.location.search)
-      let startParam = Number(params.get('start'))
-      params.set('start', startParam + 1)
-      window.location.search = params.toString()
-    }
-
-    // 前へ
-    function beforePage(event) {
-      event.preventDefault();
-      const params = new URLSearchParams(window.location.search)
-      let startParam = Number(params.get('start'))
-      params.set('start', startParam - 1)
-      window.location.search = params.toString()
-    }
-  </script>
 </body>
 </html>
