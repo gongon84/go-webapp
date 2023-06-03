@@ -17,9 +17,12 @@ func main() {
 
 	// Template
 	t := &Template{
-		templates: template.Must(template.ParseGlob("html/*.html")),
+		templates: template.Must(template.ParseGlob("resources/html/*.html")),
 	}
 	e.Renderer = t
+
+	// 静的ファイルのパスを設定
+	e.Static("/css/", "./resources/assets/css/")
 
 	e.GET("/", makeHandler(api.Index))
 	e.GET("/company", makeHandler(api.CompanyDetail))
