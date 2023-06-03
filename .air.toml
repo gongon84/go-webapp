@@ -1,0 +1,12 @@
+root = "."
+tmp_dir = "tmp"
+exclude_dir = ["tmp", "vendor"]
+build_args = ["-tags", "development"]
+run_gofmt = true
+run_golint = true
+run_vet = true
+
+[build]
+binary_name = "./tmp/main"
+cmd = "go build -o ./tmp/ ./cmd/main.go"
+ldflags = "-w -s"

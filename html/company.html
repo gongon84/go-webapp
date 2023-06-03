@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>A static page</title>
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <style>
+    /* CSSコードをここに記述 */
+    .bordered-table {
+      border-collapse: collapse;
+    }
+
+    .bordered-table th, .bordered-table td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>企業情報</h1>
+  <table class="bordered-table">
+    <thead>
+      <tr>
+        <th>企業名</th>
+        <th>webURL</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ range .Results }}
+        <tr>
+          <td>{{ .Name }}</td>
+          <td>{{ .WebURL }}</td>
+        </tr>
+      {{ end }}
+    </tbody>
+  </table>
+  <h3>
+    <a href="#" onclick="beforePage(event)">前へ</a>
+    <a href="#" onclick="nextPage(event)">次へ</a>
+  </h3>
+  <!-- jsファイル -->
+  <script>
+    // 次へ
+    function nextPage(event) {
+      event.preventDefault();
+      const params = new URLSearchParams(window.location.search)
+      let startParam = Number(params.get('start'))
+      params.set('start', startParam + 1)
+      window.location.search = params.toString()
+    }
+
+    // 前へ
+    function beforePage(event) {
+      event.preventDefault();
+      const params = new URLSearchParams(window.location.search)
+      let startParam = Number(params.get('start'))
+      params.set('start', startParam - 1)
+      window.location.search = params.toString()
+    }
+  </script>
+</body>
+</html>
