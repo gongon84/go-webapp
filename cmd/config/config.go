@@ -2,6 +2,7 @@ package config
 
 import (
 	"io/ioutil"
+	"log"
 
 	yaml "gopkg.in/yaml.v2"
 )
@@ -17,12 +18,12 @@ type Configs struct {
 func ApplyConfig() Configs {
 	configs := Configs{}
 
-	// e, err := applyEnv()
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
+	e, err := applyEnv()
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	// configs.Env = &e
+	configs.Env = &e
 
 	return configs
 }
