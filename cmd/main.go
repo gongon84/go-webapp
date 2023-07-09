@@ -26,7 +26,7 @@ func main() {
 
 	e.GET("/", makeHandler(api.Index))
 	e.GET("/company", makeHandler(api.CompanyDetail))
-	e.Logger.Fatal(e.Start(":8000"))
+	e.Logger.Fatal(e.Start(":8080"))
 
 }
 
